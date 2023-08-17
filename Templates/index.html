@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
-
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    div {
+    width: 100%;
+    height: 400px;
+    background-image: url('static\CoverBannerWithWatermarks.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    }
+    </style>
+</head>
 
 {% block content %}
-    <h1>{% block title %} Welcome to Raynor Roofing {% endblock %}</h1>
-    {% for post in posts %}
-        <a href={{ url_for('post', post_id=post['id']) }}>
-            <h2>{{ post['title'] }}</h2>
-        </a>
-        <span class="badge badge-primary">{{ post['created'] }}</span>
-        <hr>
-    {% endfor %}
+    <h1>{% block title %}  {% endblock %}</h1>
 {% endblock %}
