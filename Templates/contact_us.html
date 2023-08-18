@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% if name %}
+        <div class = 'container'>
+            <h3>Thank you, one of our team will contact you shortly</h3>
+        </div>
+    {% else %}
+        <div class = 'container'>
+            <h3>What can we help you with?</h3>
+            <br/>
+            <form method = "POST">
+                {{ form.hidden_tag() }}
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control") }}
+                <br/>
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+                <br/>
+                {{ form.phone_number.label(class="form-label") }}
+                {{ form.phone_number(class="form-control") }}
+                <br/>
+                {{ form.description_of_query.label(class="form-label") }}
+                {{ form.description_of_query(class="form-control") }}
+                <br/>
+                {{ form.submit(class="btn-primary") }}
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,3 +1,4 @@
 website-env
 __pycache__
 .idea
+config.py
