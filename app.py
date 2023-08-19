@@ -105,6 +105,16 @@ def contact_us():
                            description_of_query=description_of_query, form=form)
 
 
+@app.route('/Gallery')
+def gallery():
+    return render_template('base.html')
+
+
+@app.route('/Certifications')
+def certifications():
+    return render_template('base.html')
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
