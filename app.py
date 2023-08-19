@@ -7,6 +7,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, EmailField
 from wtforms.validators import DataRequired, Email, Length
 from werkzeug.exceptions import abort
+import smtplib
+from email.mime.text import MIMEText
 import config
 
 app = Flask(__name__)
@@ -91,6 +93,14 @@ def contact_us():
         form.email.data = ""
         form.phone_number.data = ""
         form.description_of_query.data = ""
+        body = name + " has requested a callback on " + phone_number + " or " + email + " about \n" + description_of_query
+        msg = MIMEText(body)
+        msg['Subject'] = 'Callback request by ' + name
+        msg['From'] = 'raynorroofingwebserver@gmail.com'
+        msg['To'] = ', '.join(['simonjwoodward5@gmail.com'])
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
+            smtp_server.login('raynorroofingwebserver@gmail.com', config.gmail_password)
+            smtp_server.sendmail('raynorroofingwebserver@gmail.com', ['simonjwoodward5@gmail.com'], msg.as_string())
     return render_template('contact_us.html', name=name, email=email, phone_number=phone_number,
                            description_of_query=description_of_query, form=form)
 
