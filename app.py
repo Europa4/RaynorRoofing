@@ -20,8 +20,20 @@ class ContactForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired(), Email("Please check this field")])
     phone_number = StringField("Telephone Number", validators=[DataRequired()])
     description_of_query = TextAreaField("What can we help you with?", validators=[DataRequired(),
-        Length(-1, 600,"Please use less than 600 characters")])
+                                                                                   Length(-1, 600,
+                                                                                          "Please use less than 600 characters")])
     submit = SubmitField("Submit")
+
+
+class Image:
+    path = ''
+    alt = ''
+    caption = ''
+
+    def __init__(self, path, alt, caption):
+        self.path = path
+        self.alt = alt
+        self.caption = caption
 
 
 def plaintext_formatter(text_file_name):
@@ -38,19 +50,29 @@ def index():
 @app.route('/Domestic')
 def domestic():
     txt = plaintext_formatter('domestic')
-    return render_template('domestic_commercial_systems.html', txt=txt)
+    images = [Image('Domestic/Domestic1.jpeg', 'A new domestic roof', 'Need to add a description'),
+              Image('Domestic/Domestic2.jpeg', 'A new domestic roof', 'Need to add a description'),
+              Image('Domestic/Domestic3.jpeg', 'A new domestic roof', 'Need to add a description')]
+    return render_template('domestic_commercial_systems.html', txt=txt, images=images)
 
 
 @app.route('/Commercial')
 def commercial():
     txt = plaintext_formatter('commercial')
-    return render_template('domestic_commercial_systems.html', txt=txt)
+    images = [Image('Domestic/Domestic1.jpeg', 'A new commercial roof', 'Need to add a description'),
+              Image('Domestic/Domestic2.jpeg', 'A new commercial roof', 'Need to add a description'),
+              Image('Domestic/Domestic3.jpeg', 'A new commercial roof', 'Need to add a description')]
+    return render_template('domestic_commercial_systems.html', txt=txt, images=images)
 
 
 @app.route('/Systems')
 def systems():
     txt = plaintext_formatter('systems')
-    return render_template('domestic_commercial_systems.html', txt=txt)
+    images = [Image('Systems/roofing-system.jpg', '', 'High Performance Felt Roofing Systems'),
+              Image('Systems/roofing-system1.jpg', '', 'High Performance Applied Liquid Roofing Systems'),
+              Image('Systems/roofing-system2.jpg', '', 'High Performance Single-Ply Roofing Systems'),
+              Image('Systems/roofing-system3.jpg', '', 'High Performance Mastic Asphalt Damp proofing.')]
+    return render_template('domestic_commercial_systems.html', txt=txt, images=images)
 
 
 @app.route('/ContactUs', methods=['GET', 'POST'])

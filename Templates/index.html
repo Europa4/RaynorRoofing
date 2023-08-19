@@ -5,10 +5,37 @@
     <img src="{{ url_for('static', filename='Images/CoverBannerWithWatermarks.png')}}" width = 100%>
     <br/><br/>
     <div class="container">
-        <div class = "starter-template">
+        <div class = "text-centered">
             {{ txt|safe }}
             <br/>
             <h2>Nottingham &#x2022 Leicester &#x2022 Derby &#x2022 Loughborough</h2>
+        </div>
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='Images/Homepage/QMC_placeholder.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Quick description of NCH job.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='Images/Homepage/QMC_placeholder.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Quick description of Warwick University job.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="{{ url_for('static', filename='Images/Homepage/QMC_placeholder.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Quick description of the QMC job.</p>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
 {% endblock %}
