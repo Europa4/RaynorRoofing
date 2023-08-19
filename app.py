@@ -107,7 +107,7 @@ def contact_us():
 
 @app.route('/Gallery')
 def gallery():
-    return render_template('base.html')
+    return render_template('gallery.html')
 
 
 @app.route('/Certifications')
