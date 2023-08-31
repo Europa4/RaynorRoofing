@@ -10,6 +10,7 @@ from werkzeug.exceptions import abort
 import smtplib
 from email.mime.text import MIMEText
 import config
+import json
 
 app = Flask(__name__)
 
@@ -107,7 +108,17 @@ def contact_us():
 
 @app.route('/Gallery')
 def gallery():
-    return render_template('gallery.html')
+    file = open('static/JsonFiles/Gallery.json')
+    data = json.load(file)
+    file.close()
+    for galleryItem in data['GalleryEntries']:
+        if galleryItem['Chirality'] == 'Left':
+            galleryItem.update({'FirstDiv': 'col-md-7'})
+            galleryItem.update({'SecondDiv': 'col-md-4'})
+        else:
+            galleryItem.update({'FirstDiv': 'col-md-7 order-md-2'})
+            galleryItem.update({'SecondDiv': 'col-md-5 order-md-1'})
+    return render_template('gallery.html', data=data)
 
 
 @app.route('/Certifications')

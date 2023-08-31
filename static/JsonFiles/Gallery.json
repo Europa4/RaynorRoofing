@@ -1,0 +1,21 @@
+{
+  "GalleryEntries": [
+  {
+    "Header": "Some cool roofing facts",
+    "Description": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+    "Image": "Test1.png",
+    "Chirality": "Left"
+  },
+  {
+    "Header": "Some more cool roofing facts",
+    "Description": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+    "Image": "Test2.png",
+    "Chirality": "Right"
+  },
+  {
+    "Header": "Yet more cool roofing facts",
+    "Description": "Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.",
+    "Image": "Test3.png",
+    "Chirality": "Left"
+  }
+]}

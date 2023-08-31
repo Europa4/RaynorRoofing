@@ -3,53 +3,30 @@
 {% block body %}
 <link href="{{ url_for('static',filename='CSS/carousel.css')}}" rel="stylesheet">
 <hr class="featurette-divider">
+        {% for galleryItem in data['GalleryEntries'] %}
+            <div class = "row featurette">
+                <div class = '{{ galleryItem["FirstDiv"] }}' >
+                    <h2 class ="featurette-heading">{{ galleryItem["Header"] }}</h2>
+                    <p class = "lead"> {{ galleryItem["Description"] }}</p>
+                </div>
+                <div class = '{{ galleryItem["SecondDiv"] }}' >
+                    <img class="featurette-image img-fluid mx-auto" src = "{{ url_for('static', filename='Images/Gallery/Test1.png') }}" alt="">
+                </div>
+            </div>
+            <hr class="featurette-divider">
+        {% endfor %}
 
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='Images/Domestic/Domestic1.jpeg' )}}" alt="Generic placeholder image" height="500px" width="500px">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
     <div id="carouselExample" class="carousel slide">
         <div class="text-centered">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{ url_for('static', filename='Images/Domestic/Domestic1.jpeg' )}}" width=800px alt="..." >
+      <img src="{{ url_for('static', filename='Images/Domestic/Domestic1.jpeg' )}}" alt="..." >
     </div>
     <div class="carousel-item">
-      <img src="{{ url_for('static', filename='Images/Domestic/Domestic2.jpeg' )}}" width=800px alt="...">
+      <img src="{{ url_for('static', filename='Images/Domestic/Domestic2.jpeg' )}}" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="{{ url_for('static', filename='Images/Domestic/Domestic3.jpeg' )}}" width=800px alt="...">
+      <img src="{{ url_for('static', filename='Images/Domestic/Domestic3.jpeg' )}}" alt="...">
     </div>
   </div>
             </div>
