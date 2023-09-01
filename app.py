@@ -116,14 +116,20 @@ def gallery():
             galleryItem.update({'FirstDiv': 'col-md-7'})
             galleryItem.update({'SecondDiv': 'col-md-4'})
         else:
-            galleryItem.update({'FirstDiv': 'col-md-7 order-md-2'})
+            galleryItem.update({'FirstDiv': 'col-md-7 order-md-5'})
             galleryItem.update({'SecondDiv': 'col-md-5 order-md-1'})
+    data['CarouselItems'][0].update({'CarouselClass': 'carousel-item active'})
+    for carouselItem in data['CarouselItems'][1:]:
+        carouselItem.update({'CarouselClass': 'carousel-item'})
     return render_template('gallery.html', data=data)
 
 
 @app.route('/Certifications')
 def certifications():
-    return render_template('base.html')
+    file = open('static/JsonFiles/Certifications.json')
+    data = json.load(file)
+    file.close()
+    return render_template('certifications.html', data=data)
 
 
 @app.errorhandler(404)
