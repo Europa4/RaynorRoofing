@@ -23,8 +23,8 @@ class ContactForm(FlaskForm):
     email = EmailField("Email", validators=[DataRequired(), Email("Please check this field")])
     phone_number = StringField("Telephone Number", validators=[DataRequired()])
     description_of_query = TextAreaField("What can we help you with?", validators=[DataRequired(),
-                                                                                   Length(-1, 600,
-                                                                                          "Please use less than 600 characters")])
+                                                                                   Length(-1, 1000,
+                                                                                          "Please use less than 1000 characters")])
     submit = SubmitField("Submit")
 
 
