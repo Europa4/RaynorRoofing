@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<hr class="featurette-divider">
+{% for certificationItem in data['certifications'] %}
+    <div class = "row featurette">
+        <div class = 'col-lg-9 order-md-2' >
+            <h2 class ="featurette-heading">{{ certificationItem["Header"] }}</h2>
+            <p class = "lead"> {{ certificationItem["Body"] | safe }}</p>
+        </div>
+        <div class = 'col-sm order-md-1' >
+            <img class="featurette-image img-fluid mx-auto" src = "{{ url_for('static', filename='Images/Certifications/' + certificationItem['Image'] ) }}" alt="">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+{% endfor %}
+{% endblock %}
